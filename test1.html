@@ -1,0 +1,32 @@
+<html ng-app="countryApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script>
+      var countryApp = angular.module('countryApp', []);
+      countryApp.controller('CountryCtrl', function ($scope, $http){
+        $http.get('js/data.json').success(function(response) {
+          $scope.name = response;
+        });
+      });
+    </script>
+  </head>
+  <body ng-controller="CountryCtrl">
+    <table class="table table-bordered">
+      <tr>
+        <td><strong>ID</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>City</strong></td>
+        <td><strong>Country</strong></td>
+      </tr>
+      <tr ng-repeat="student in students | filter:q2:requests">
+        <td><span class="badge">{{$index + 1}}</span></td>
+        <td>{{student.Name}}</td>
+        <td>{{student.City}}</td>
+        <td>{{student.Country}}</td>
+      </tr>
+    </table>
+  </div>
+  </body>
+</html>

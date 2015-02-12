@@ -1,0 +1,117 @@
+<html ng-app="myApp">
+	<head>
+		<title>Angular App</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/uikit.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="js/uikit.js"></script>
+		<script src="js/uikit.min.js"></script>
+		<script src="angular/angular.js"></script>
+		
+		<script src="script.js"></script>
+		<style type ="text/css">
+        	.container{
+            width:600px;
+            padding-top: 10px;
+            margin-left: 0px;
+        	}
+        	.tablecontainer{
+        		width:700px;
+        		margin-left: 5px;
+        	}
+    	</style>
+	</head>
+<body>
+	<h1>Data from local model</h1>
+<div ng-controller="controllerOne">
+	<div class="container">
+		<div class="input-group input-group-lg">
+  			<span class="input-group-addon label-success" id="sizing-addon1"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-search"></i>Search</span>
+  			<input type="search" ng-model="query" class="form-control" placeholder="Enter your search" aria-describedby="sizing-addon1">
+		</div>
+	</div>
+	<br/>
+<hr/>
+
+<h3>There are <span class="badge">{{lists.length}}</span> people<h3>
+
+<div class="tableContainer">	
+<div class="tablecontainer">
+	<table class="table table-bordered">
+		<tr >
+			<td><strong>ID</strong></td>
+			<td><strong>Name</strong></td>
+			<td><strong>Age</strong></td>
+			<td><strong>Gender</strong></td>
+		</tr>
+		<tr ng-repeat="list in lists | filter:query:requests">
+			<td><span class="badge">{{$index + 1}}</span></td>
+			<td>{{list.name}}</td>
+			<td>{{list.age}}</td>
+			<td>{{list.gender}}</td>
+		</tr>
+	</table>
+</div>
+</div>
+<h1>Data from External Database</h1>
+<div ng-controller= "customerController">
+		<h3>There are <span class="badge">{{names.length}}</span> people<h3>
+	<div class="container">
+		<div class="input-group input-group-lg">
+  			<span class="input-group-addon label-success" id="sizing-addon1"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-search"></i>Search</span>
+  			<input type="search" ng-model="q" class="form-control " placeholder="Enter your search" aria-describedby="sizing-addon1">
+		</div>
+	</div>
+<br/>
+<hr/>
+<div class="tableContainer">
+	<table class="table table-bordered">
+		<tr>
+			<td><strong>ID</strong></td>
+			<td><strong>Name</strong></td>
+			<td><strong>City</strong></td>
+			<td><strong>Country</strong></td>
+		</tr>
+		<tr ng-repeat="x in names | filter:q:requests">
+			<td><span class="badge">{{$index + 1}}</span></td>
+			<td>{{x.Name}}</td>
+			<td>{{x.City}}</td>
+			<td>{{x.Country}}</td>
+		</tr>
+	</table>
+</div> 
+<br/>
+
+<h1>Data from JSON file</h1>
+<div ng-controller= "stdctrl">
+	<div class="container">
+	<div class="input-group input-group-lg">
+  			<span class="input-group-addon label-success" id="sizing-addon1"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-search"></i>Search</span>
+  			<input type="search" ng-model="q2" class="form-control " placeholder="Enter your search" aria-describedby="sizing-addon1">
+	</div>
+	<br/>
+	<hr/>
+</div>
+	<div class="tableContainer">
+		<table class="table table-bordered">
+			<tr>
+				<td><strong>ID</strong></td>
+				<td><strong>Name</strong></td>
+				<td><strong>City</strong></td>
+				<td><strong>Country</strong></td>
+			</tr>
+			<tr ng-repeat="student in students| filter:q2:requests">
+				<td><span class="badge">{{$index + 1}}</span></td>
+				<td>{student.Name}}</td>
+				<td>{student.City}}</td>
+				<td>{student.Country}}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>
+
+</html>
+
