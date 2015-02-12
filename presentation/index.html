@@ -1,0 +1,257 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+       <link href="css/boostrap-social.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+        <q> <i class="fa fa-cogs fa-spin"></i><b> Meetup: Code & Share ideas</b> </q>
+            
+          <div class="list-group">
+            <a class="list-group-item"><i class="fa fa-comments fa-fw"></i>&nbsp;Welcome & Introduction</a>
+            <a class="list-group-item"><i class="fa fa-comment-o fa-fw"></i>&nbsp; Questions & Answers</a>
+            <a class="list-group-item"><i class="fa fa-code fa-fw"></i>&nbsp; Javascript Dependency Injection & Scope</a>
+            <a class="list-group-item"><i class="fa fa-calendar fa-fw"></i>&nbsp; Way forward: Next meetup</a>
+          </div>
+        
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500">
+        <q><i class="fa fa-comments fa-fw"></i>&nbsp;<strong>Welcome & Introduction</strong></q>
+        <i class="fa fa-quote-left fa-3x pull-left fa-border"></i>
+            The Port Vila Developer Meetup is organise on the objective that people with enthusiasm and passion in solving problems through progamming/coding and algorithm should meetup and; .<br/>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-share-alt-square fa-stack-1x"></i>
+            </span>
+            <strong>Share ideas</strong> Presentation | Seminars | Workshops<br>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+            </span>
+            <strong>Hands on: </strong>Code | algorithm | Solving problems <br>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i>
+            </span>
+            <strong>Have fun!</strong> | Beer | Caffine | Soft drinks <br>
+
+    </div>
+
+     <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+        <span class="try">Wanem nao </span>
+        <h1>Scope?<sup>*</sup></h1>
+        <span class="footnote"><sup>*</sup> Refers to Celebrity status of a <strong>variable</strong>, <strong>object & function</strong></span>
+        <p>Global and Local scope...Let's see some code demonstration</p>
+    </div>
+
+    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>Javascript programmers are practically ranked by how well they understand scope. It can at times be quite counter-intuitive.</p>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <q><strong>
+           Example 1</strong>:Function scope</q>
+        <pre>
+             var a = 1;
+             var b = 2;
+             var answer = addNumbers(a,b);
+             console.log("the answer is",answer);
+             function addNumbers(x, y){
+                return x + y;
+            }
+        </pre>
+        <p>This example should work when run
+            There are two ways to define a function
+            when we define a function with the function keyword like this.The javascript interpreter will "pull" the.function definition up to the top of our current scope. So it doesn't matter where within our scope we define the function, it will behave like it was defined right at the top of the scope. Here we are working at global scope so this is just like defining it at the top of the file
+        </p>
+    </div>
+
+
+    <div id="function2"class="step slide" data-x="2000" data-y="-1500">
+        <q><strong>
+           Example 2</strong>:Function scope</q>
+        <pre>
+            var b = 2;
+            var answer = addNumbers(a,b);
+            var a = 1;
+            console.log("the answer is",answer);
+
+            function addNumbers(x, y){
+                    return x + y;
+                }
+            
+        </pre>
+        <p>This example should work when <strong>NOT</strong>run
+          <strong>Why?</strong>This example will not work as "a" is undefined when the function is called
+        </p>
+    </div>
+     <div id="fun3"class="step slide" data-x="3000" data-y="-2500">
+        <q><strong>
+           Example 3</strong>:Function scope</q>
+        <pre>
+             var a = 1;
+             var b = 2;
+             var answer = addNumbers(a,b);
+
+            console.log("the answer is",answer);
+
+            var addNumbers = function(x, y){
+                return x + y;
+            }
+        </pre>
+        <p>
+            This example shows the different style of defining a function the expression style which is defined at runtime this example will *not* run, as the funciton is defined at runtime at the place in the file where it is assignd to var addNumbers. It is not puled up. So we get an error as addNumber is used before it is defined
+        </p>
+
+    </div>
+    <div id="fun4"class="step slide" data-x="1500" data-y="-2500">
+        <q><strong>
+           Example 4</strong>:Function scope</q>
+        <pre>
+            var a = 1;
+            var b = 2;
+            var addNumbers = function(x, y){
+                    return x + y;
+                }
+            var answer = addNumbers(a,b);
+            console.log("the answer is",answer);
+        </pre>
+        <p>
+           This example shows the different style of defining a function the expression style which is defined at runtime. This example <strong>will run, as the funciton is defined at runtime before it is used
+        </p>
+
+    </div>
+    <div id="fun5"class="step slide" data-x="3500" data-y="-4000">
+        <q><strong>
+           Example 5.0</strong>:Function scope</q>
+        <pre>
+            var a = 1;
+            var b = 2;
+            var c = 10;
+            
+            var addNumbersAndC = function(x, y){
+                    return a + b + c;  
+                }
+            
+            var answer = addNumbersAndC(a,b);
+            console.log("the answer is",answer);
+        </pre>
+       
+        <p>We are using a & b.The function now relies on C being defined in the containing scope</p>
+
+    </div>
+    <div id="fun5-1"class="step slide" data-x="4500" data-y="-4000">
+        <q><strong>
+           Example 5.1</strong>:Redefine the function at 5.0</q>
+          
+        
+        <pre>
+            var addNumbersAndHideC = function(x, y){
+                        var c = 1;  
+                    return a + b + c;
+            }
+            var answer = addNumbersAndHideC(a,b);
+            console.log("the answer is",answer);
+        </pre>
+        <p>And happen to use a variable c we wil hide the one in the containing scope</p> 
+        <p>We are using a & b.The function now relies on C being defined in the containing scope</p>
+
+    </div>
+    <div id="fun5-1"class="step slide" data-x="5500" data-y="-5000">
+        <q><strong>
+           Example 5.1</strong>:Redefine the function at 5.0</q>
+          
+        
+        <pre>
+            var addNumbersAndHideC = function(x, y){
+                        var c = 1;  
+                    return a + b + c;
+            }
+            var answer = addNumbersAndHideC(a,b);
+            console.log("the answer is",answer);
+        </pre>
+        <p>And happen to use a variable c we wil hide the one in the containing scope</p> 
+        <p>We are using a & b.The function now relies on C being defined in the containing scope</p>
+
+    </div>
+    
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>The Robotic <b>JS</b> <span class="thoughts">framework</span></p>
+    </div>
+
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+        <p>Clean | <b> Elegant | </b>Testable</p>
+    </div>
+    -->
+    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+        <p>Checkout<b class="positioning">AngularJS</b>, <b class="rotating">BackboneJS</b> EmberJS <b class="scaling">D3</b>RequireJS,NodeJS,<br/>ExpressJS,Coffeescript,MongoDB,ImpressJS.......</p>
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>Use Google. <b>Make Learning</b> a <b class="imagination">passion</b></p>
+    </div>
+
+    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+        <p>Next Meetup</p>
+        <q>We need speakers, presenters, Coordinators, Organisers, etc...</q>
+    </div>
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>one more thing...</p>
+    </div>
+
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+        <p><span class="have">Have</span> <span class="you">fun</span> <span class="noticed">coding</span> <span class="its">pair programming</span> <span class="in">Testing</span> </p>
+        <span class="footnote">Tenk yu tumas!!!!!</span>
+    </div>
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>No forget blo prestem spacebar</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
+
+
